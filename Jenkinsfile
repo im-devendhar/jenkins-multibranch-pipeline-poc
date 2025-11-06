@@ -6,20 +6,29 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Build') {
             steps {
                 echo "Building HTML app from ${env.BRANCH_NAME} branch"
             }
         }
+
         stage('Test') {
             steps {
                 echo "Simulating tests for ${env.BRANCH_NAME} branch"
             }
         }
+
         stage('Deploy') {
             steps {
                 echo "Deploying HTML app from ${env.BRANCH_NAME} branch"
-                sh 'sudo cp index.html /var/www/html/index.html'
+                sh '''
+                if [ "${BRANCH_NAME}" = "main" ]; then
+                    sudo cp index.html /var/www/main/index.html
+                elif [ "${BRANCH_NAME}" = "feature" ]; then
+                    sudo cp index.html /var/www/feature/index.html
+                fi
+                '''
             }
         }
     }
