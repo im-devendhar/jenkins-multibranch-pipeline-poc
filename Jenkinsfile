@@ -17,10 +17,17 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {
-                echo "Deploying HTML app from ${env.BRANCH_NAME} branch"
-                sh 'sudo cp index.html /var/www/html/index.html'
-            }
-        }
+    steps {
+        echo "Deploying HTML app from ${env.BRANCH_NAME} branch"
+        sh '''
+        if [ "${BRANCH_NAME}" = "main" ]; then
+            sudo cp index.html /var/www/main/index.html
+        elif [ "${BRANCH_NAME}" = "feature" ]; then
+            sudo cp index.html /var/www/feature/index.html
+        fi
+        '''
+    }
+}
+        
     }
 }
