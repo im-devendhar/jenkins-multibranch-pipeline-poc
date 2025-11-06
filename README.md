@@ -3,7 +3,6 @@
 
 # Jenkins Multibranch Pipeline Deployment on Apache
 
-This project demonstrates how to deploy a static HTML application using Jenkins Multibranch Pipeline and Apache Web Server on an EC2 instance.
 
 ---
 
