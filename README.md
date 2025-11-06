@@ -1,4 +1,3 @@
-# jenkins-multibranch-pipeline-poc
 
 
 # Jenkins Multibranch Pipeline Deployment on Apache
