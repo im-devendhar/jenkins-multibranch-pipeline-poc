@@ -16,13 +16,11 @@ pipeline {
                 echo "Simulating tests for ${env.BRANCH_NAME} branch"
             }
         }
-        
-stage('Deploy') {
-    steps {
-        echo "Deploying HTML app from ${env.BRANCH_NAME} branch"
-        sh 'sudo cp index.html /var/www/html/index.html'
-    }
-}
-
+        stage('Deploy') {
+            steps {
+                echo "Deploying HTML app from ${env.BRANCH_NAME} branch"
+                sh 'sudo cp index.html /var/www/html/index.html'
+            }
+        }
     }
 }
