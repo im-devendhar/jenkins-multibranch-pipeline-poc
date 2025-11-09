@@ -37,7 +37,7 @@ Jenkins requires Java. Install it using:
 
 ```bash
 sudo apt update
-sudo apt install openjdk-11-jdk -y
+sudo apt install openjdk-17-jdk -y
 ```
 
 ---
@@ -228,4 +228,6 @@ After a successful Jenkins build, access your deployed apps:
 4. Apache serves updated HTML for that branch.
 
 ---
+
+
 
